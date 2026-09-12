@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRT RTL Converter - تبدیل زیرنویس به فارسی</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/arabic-reshaper@3.0.1/build/arabic-reshaper.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SRT RTL Converter</h1>
+            <p class="subtitle">تبدیل زیرنویس SRT به RTL - رفع بهم‌ریختگی فارسی و انگلیسی</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="section input-section">
+                <h2>ورودی</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="paste">پیست کردن متن</button>
+                    <button class="tab-btn" data-tab="upload">آپلود فایل</button>
+                </div>
+
+                <div class="tab-content active" id="tab-paste">
+                    <textarea id="input-text" placeholder="متن SRT خود را اینجا پیست کنید...&#10;&#10;مثال:&#10;1&#10;00:00:01,000 --> 00:00:04,000&#10;Hello World&#10;سلام دنیا"></textarea>
+                </div>
+
+                <div class="tab-content" id="tab-upload">
+                    <div class="upload-area" id="upload-area">
+                        <input type="file" id="file-input" accept=".srt,.txt" hidden>
+                        <div class="upload-content" id="upload-content">
+                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <p>فایل SRT را اینجا بکشید و رها کنید</p>
+                            <span class="upload-hint">یا کلیک کنید تا فایل انتخاب شود</span>
+                        </div>
+                    </div>
+                    <div class="file-info" id="file-info" hidden>
+                        <span id="file-name"></span>
+                        <button class="remove-file" id="remove-file" title="حذف فایل">&times;</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="convert-btn">
+                    <span>تبدیل به RTL</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </button>
+            </section>
+
+            <!-- Output Section -->
+            <section class="section output-section">
+                <h2>خروجی</h2>
+                
+                <div class="output-container">
+                    <textarea id="output-text" placeholder="نتیجه تبدیل اینجا نمایش داده می‌شود..."></textarea>
+                </div>
+
+                <div class="output-actions">
+                    <button class="btn btn-secondary" id="copy-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span>کپی کردن</span>
+                    </button>
+                    <button class="btn btn-secondary" id="download-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        <span>دانلود SRT</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="section info-section">
+                <h2>راهنما</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>چطور کار می‌کند؟</h3>
+                        <p>این برنامه زیرنویس‌های SRT که مخلوط انگلیسی و فارسی هستند را تشخیص داده و متن‌های فارسی را به فرمت درست RTL تبدیل می‌کند.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>روش استفاده</h3>
+                        <p>متن SRT را پیست کنید یا فایل را آپلود کنید، روی دکمه "تبدیل به RTL" کلیک کنید و نتیجه را کپی یا دانلود کنید.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>پشتیبانی</h3>
+                        <p>این برنامه از حروف فارسی، عربی و زبان‌های RTL پشتیبانی می‌کند و ساختار زیرنویس را حفظ می‌نماید.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>راست‌چین‌سازی زیرنویس SRT</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
